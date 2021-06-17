@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {API_ENDPOINT} from '../config';
-
+import ClipLoader from "react-spinners/ClipLoader";
 import globalStyles from '../global.module.css';
 import styles from './Splash.module.css';
 
@@ -37,7 +37,6 @@ const Splash = () => {
       })
       .then(res => {
         setBG(res.svg)
-        console.log("Set BG")
       })
   }
 
@@ -47,7 +46,7 @@ const Splash = () => {
 
   return (
     <div className={styles.splash} style={style}>
-      <div className={styles.content}>
+      {BG ? <div className={styles.content}>
         <div className={styles.copy}>
           <h1>SKEW</h1>
           <h3>A Method for Constructing Style</h3>
@@ -58,9 +57,9 @@ const Splash = () => {
           <Link to='/about' className={`${globalStyles.btnLink} ${styles.btnLink}`}>Who We Are</Link>
           <Link to='/visual-art-generator' className={`${globalStyles.btnLink} ${styles.btnLink}`}>Browse Creations</Link>
         </div>
-      </div>
+      </div> : <ClipLoader  color={"black"} loading={true} size={150} />}
       <div className={styles.bg} dangerouslySetInnerHTML={{__html: BG}} />
-    </div>
+    </div> 
   )
 }
 
