@@ -17,10 +17,19 @@ const VAG = (props) => {
     e.preventDefault();
     setGenerating(true)
     setSVG(null)
-    const body = {
-      width: window.innerWidth, 
-      height: window.innerHeight
+    const wndWidth = window.innerWidth
+    const wndHeight = window.innerHeight
+    let width, height, cellSize
+    if (wndWidth >= wndHeight) {
+      width = 350
+      cellSize = wndWidth/width
+      height = Math.ceil(wndHeight/cellSize)
+    } else {
+      height = 120
+      cellSize = wndHeight/height
+      width = Math.ceil(wndWidth/cellSize)
     }
+    const body = {width, height, cellSize}
 
     const options = {
       method: 'POST',

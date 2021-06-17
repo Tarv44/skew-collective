@@ -7,27 +7,17 @@ const {fillStart, fillCellGroup} = require('../../functions/fillGrid')
 GenRouter
     .route('/visual-art-generator')
     .post(jsonParser, (req, res, next) => {
-        const {width, height} = req.body
+        const {width, height, cellSize} = req.body
         let totalColumns = width
         let totalRows = height
         let totalCells
-        let cellSize = 1
-        if (width >= height) {
-            totalColumns = 350
-            cellSize = width/totalColumns
-            totalRows = Math.ceil(height/cellSize)
-        } else {
-            totalRows = 120
-            cellSize = height/totalRows
-            totalColumns = Math.ceil(width/cellSize)
-        }
         totalCells = totalRows * totalColumns
         let gridData = fillStart(totalColumns, totalRows, cellSize)
         gridData = fillCellGroup(gridData)
         let svg = (
             `<svg version="1.1"
             baseProfile="full"
-            width="${width}" height="${height}"
+            width="${width * cellSize}" height="${height * cellSize}"
             xmlns="http://www.w3.org/2000/svg"
             shape-rendering="crispEdges"><g>`
         )
