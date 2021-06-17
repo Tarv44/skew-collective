@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 
 import styles from './NavBar.module.css';
 
-const NavBar = () => {
-    return (
+const NavBar = (props) => {
+    return ( props.location.pathname !== '/' ?
         <div className={styles.NavBar}>
             <Link to='/'><h2>SKEW logo</h2></Link>
             <nav className={styles.nav}>
@@ -12,6 +12,7 @@ const NavBar = () => {
                 <Link to='/visual-art-generator'>Works</Link>
             </nav>
         </div>
+        : null
     )
 };
 
