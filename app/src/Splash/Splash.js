@@ -54,9 +54,9 @@ const Splash = () => {
           <p>Skew Collective is a coalition of artists dedicated to expanding creativity past the confines of intuitive bias.</p>
         </div>
         <div className={styles.links}>
-          <Link className={`${globalStyles.btnLink} ${styles.btnLink}`}>Artistic Concept</Link>
-          <Link className={`${globalStyles.btnLink} ${styles.btnLink}`}>Who We Are</Link>
-          <Link className={`${globalStyles.btnLink} ${styles.btnLink}`}>Browse Creations</Link>
+          <Link to='/philosophy' className={`${globalStyles.btnLink} ${styles.btnLink}`}>Artistic Concept</Link>
+          <Link to='/about' className={`${globalStyles.btnLink} ${styles.btnLink}`}>Who We Are</Link>
+          <Link to='/visual-art-generator' className={`${globalStyles.btnLink} ${styles.btnLink}`}>Browse Creations</Link>
         </div>
       </div>
       <div className={styles.bg} dangerouslySetInnerHTML={{__html: BG}} />

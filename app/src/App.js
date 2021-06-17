@@ -1,7 +1,7 @@
 import {Route} from 'react-router-dom';
 
 import VAG from './VAG/VAG';
-// import Landing from './Landing/Landing';
+import Landing from './Landing/Landing';
 import NavBar from './NavBar/NavBar';
 import Philosophy from './Philosophy/Philosophy';
 import Splash from './Splash/Splash';
@@ -15,6 +15,7 @@ const App = (props) => {
       <Route component={NavBar} />
       <Route path='/visual-art-generator' component={VAG}/>
       <Route path='/philosophy' component={Philosophy}/>
+      <Route path='/about' component={Landing}/>
       <Route exact path='/' component={Splash}/>
     </div>
   );

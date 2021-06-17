@@ -10,6 +10,10 @@
     min-height: 10vh;
 }
 
-.nav a:first-child {
+.nav a{
     margin-right: 10px;
+}
+
+.nav a:last-child{
+    margin-right: 0;
 }
